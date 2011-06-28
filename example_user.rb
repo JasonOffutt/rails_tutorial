@@ -22,13 +22,9 @@ end
 
 # Create a method that takes a string an shuffles the characters...
 class String
-  def shuffle(string)
-    if string.nil?
-      return ''
-    end
-    
+  def shuffle
     # Split on empty string, so every character gets split on
-    string.split('').shuffle.join
+    self.split('').shuffle.join
   end
 end
 
