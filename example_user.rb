@@ -12,8 +12,9 @@ class User
   def formatted_email
     if !@name.nil? && !@email.nil?
       "#{@name} <#{@email}>"
+    else
+      ''
     end
-    return ''
   end
 end
 
