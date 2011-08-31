@@ -58,5 +58,18 @@ describe PagesController do
                                     :content => @base_title + "Help")
     end
   end
+  
+  describe "GET 'howdy'" do
+    it "should be successful" do
+      get 'howdy'
+      response.should be_success
+    end
+    
+    it "should have the right title" do
+      get 'howdy'
+      response.should have_selector("title", 
+                                    :content => @base_title + "Howdy")
+    end
+  end
 
 end
