@@ -1,7 +1,7 @@
 class User
   attr_accessor :name, :email       # property definitions (getter/setter)
   
-  # initialize has special meanint in Ruby
+  # initialize has special meaning in Ruby
   # It funcitons as the constructor, so when you:
   # user = User.new, initialize will be triggered
   def initialize(attributes = {})   # assigning a default value of empty hash
