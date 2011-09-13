@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.9'
 gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'gravatar_image_tag'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -31,4 +32,5 @@ group :test do
   gem 'rspec'
   gem 'webrat'
   gem 'spork', '~> 0.9.0.rc'
+  gem 'factory_girl_rails'
 end
