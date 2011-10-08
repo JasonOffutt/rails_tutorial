@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe UsersController do
+  
   render_views
 
   describe "GET 'new'" do
@@ -13,9 +14,11 @@ describe UsersController do
       get :new
       response.should have_selector('title', :content => 'Sign up')
     end
+    
   end
   
   describe "GET 'show'" do
+    
     before(:each) do
       @user = Factory :user
       
@@ -49,11 +52,13 @@ describe UsersController do
       get :show, :id => @user
       response.should have_selector('h1 > img', :class => 'gravatar')
     end
+    
   end
   
   describe "POST 'create'" do
     
     describe 'failure' do
+      
       before(:each) do
         @attr = { :name => "", :email => "", :password => "", :password_confirmation => "" }
       end
@@ -73,6 +78,14 @@ describe UsersController do
         post :create, :user => @attr
         response.should render_template('new')
       end
+      
+      it 'should clear password fields' do
+        hash = @attr.merge :password => 'foobar', :password_confirmation => 'foobar'
+        post :create, :user => hash
+        response.should have_selector('#user_password', :value => '')
+        response.should have_selector('#user_password_confirmation', :value => '')
+      end
+      
     end
     
     describe 'success' do
@@ -98,4 +111,29 @@ describe UsersController do
     end
     
   end
+  
+  describe "GET 'new'" do
+  
+    it 'should have a name field' do
+      get :new
+      response.should have_selector("input[name='user[name]'][type='text']")
+    end
+    
+    it 'should have an email field' do
+      get :new
+      response.should have_selector("input[name='user[email]'][type='text']")
+    end
+    
+    it 'should have a password field' do
+      get :new
+      response.should have_selector("input[name='user[password]'][type='password']")
+    end
+    
+    it 'should have a confirmation field' do
+      get :new
+      response.should have_selector("input[name='user[password_confirmation]'][type='password']")
+    end
+  
+  end
+  
 end
