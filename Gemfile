@@ -24,7 +24,7 @@ gem 'gravatar_image_tag'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.6.1'
   gem 'annotate', '2.4.0'
 end
 
@@ -33,4 +33,5 @@ group :test do
   gem 'webrat'
   gem 'spork', '~> 0.9.0.rc'
   gem 'factory_girl_rails'
+  gem 'ruby-debug19'
 end

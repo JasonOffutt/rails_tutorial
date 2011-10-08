@@ -43,6 +43,8 @@ class User < ActiveRecord::Base
     return user if user.has_password? submitted_password
   end
   
+  # Private functionality.
+  # Anything after the 'private' pragma will be inaccessable from outside the class
   private
   
     def encrypt_password
